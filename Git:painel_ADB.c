@@ -3,7 +3,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-// Reads key press without needing ENTER
+//Reads key press without needing ENTER
 int getch() {
     struct termios oldt, newt;
     int ch;
