@@ -43,29 +43,26 @@ int main() {
     };
 
     while(1) {
-        system("clear");
+	system("clear");
 
-        // Header: Blue background, White text
-        printf("\033[37;44m %-48s \033[0m\n", " ANDROID DEBUG BRIDGE - Version - 1.6.4 ");
-        printf("\n Use ARROW KEYS to navigate and press ENTER:\n\n");
+        printf("\033[37;44m %-48s \033[0m\n", " ANDROID DEBUG BRIDGE PANEL - ADB ");
+        printf("\n\033[0;33mUse ARROW KEYS to navigate and press ENTER:\033[0m\n"); 
+	printf("\033[0;33mVersion-1.6.4 - SFAP - Simple and Fast ADB Panel\n");
+        printf("\033[9m                                                  \033[0m\n");
 
         for(int i = 0; i < total; i++) {
             if(i == selected) {
-                // SELECTED LINE (Blue background, White text)
                 printf("\033[1;37;44m > %-45s \033[0m\n", options[i]);
             } else {
-                // NORMAL LINES (Black background, Blue text)
-                printf("   \033[1;34m%-45s \033[0m\n", options[i]);
+                printf("   \033[0;34m%-45s \033[0m\n", options[i]);
             }
         }
-
         // Moves print to line 20, column 1
         printf("\033[20;1H");
 
         printf("\n\n\033[1;30;47m %-48s \033[0m\n", " [ COMMAND SCRIPT: ] ");
         // Prints the script based on current selection in Bold White
         printf("\033[1;37m >> %s \033[0m\n", scripts[selected]);
-
         key = getch();
 
         if(key == 27) { // ESC sequence for arrow keys
@@ -89,12 +86,12 @@ int main() {
                 system("adb shell reboot -p");
             } else if (selected == 4) {
                 system("adb shell dumpsys battery");
-	    } else if (selected == 5) { // Sair
+	    } else if (selected == 5) { 
                 printf("Exiting system...\n");
                 break;
             }
 
-            printf("\n\033[1;33mOperation completed! Press any key to continue...\033[0m");
+	  printf("\n\033[1;33mOperation completed! Press any key to continue...\033[0m");
             getch();
         } 
     }
