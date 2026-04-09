@@ -25,7 +25,7 @@ void menu_reboot() {
         "Reboot to Recovery",
         "Reboot to Bootloader",
         "Reboot to Sideload",
-        "Power off"
+        "Power off",
     };
 
     while(1) {
